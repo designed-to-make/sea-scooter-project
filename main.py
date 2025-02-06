@@ -1,6 +1,6 @@
 #Main program to run at boot
 06/02/2025
-#V0.02 with ota
+#V0.03 with ota
 
 
 from machine import Pin, I2C, PWM
@@ -11,7 +11,14 @@ from seascooter import *
 from ota import OTAUpdater
 from WIFI_CONFIG import SSID, PASSWORD
 
+#check for OTA updates
 firmware_url = "https://raw.githubusercontent.com/designed-to-make/sea-scooter-project/main"
+
+ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.py")
+ota_updater.download_and_install_update_if_available()
+
+ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "seascooter.py")
+ota_updater.download_and_install_update_if_available()
 
 # RPi Pico - Pin assignment
 i2c = I2C(0, scl=Pin(17), sda=Pin(16),freq=400000)
