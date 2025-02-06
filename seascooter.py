@@ -1,7 +1,8 @@
 #this module includes all functions that light be required to log data from sensors.
+#07/02/2025
+#update verion 0.03
 
 from time import sleep, time
-
 
 # Check that the current not negative and a buffer overrun number around 82000 if so make negative else pass raw value.
 def real_current(raw_reading):

@@ -1,6 +1,6 @@
 #Main program to run at boot
 06/02/2025
-#V0.02 with ota poof
+#V0.03 with ota SUCCESS
 
 
 from machine import Pin, I2C, PWM
@@ -12,7 +12,7 @@ from ota import OTAUpdater
 from WIFI_CONFIG import SSID, PASSWORD
 
 #check for OTA updates
-firmware_url = "https://raw.githubusercontent.com/designed-to-make/sea-scooter-project/main"
+firmware_url = "https://raw.githubusercontent.com/designed-to-make/sea-scooter-project/"
 
 ota_updater = OTAUpdater(SSID, PASSWORD, firmware_url, "main.py")
 ota_updater.download_and_install_update_if_available()
