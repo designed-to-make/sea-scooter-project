@@ -1,6 +1,6 @@
 #Main program to run at boot
 06/02/2025
-#V0.03 with ota SUCCESS
+#V0.05 with ota SUCCESS
 
 
 from machine import Pin, I2C, PWM
