@@ -8,6 +8,10 @@ from time import sleep, sleep_ms
 from bme680 import *
 from ina260 import INA260, AveragingCount, ConversionTime
 from seascooter import *
+from ota import OTAUpdater
+from WIFI_CONFIG import SSID, PASSWORD
+
+firmware_url = "https://raw.githubusercontent.com/designed-to-make/sea-scooter-project/main"
 
 # RPi Pico - Pin assignment
 i2c = I2C(0, scl=Pin(17), sda=Pin(16),freq=400000)
