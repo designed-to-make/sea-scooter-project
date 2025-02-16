@@ -1,8 +1,7 @@
 #this module includes all functions that light be required to log data from sensors.
-#07/02/2025
-#update verion 0.03
 
 from time import sleep, time
+
 
 # Check that the current not negative and a buffer overrun number around 82000 if so make negative else pass raw value.
 def real_current(raw_reading):
@@ -26,7 +25,7 @@ def av_current(ina_obj, samples):
         return sum(readings)/(samples)
 
 
-def log_state(last_time_stamp,pressure, temp, humid, current, voltage, control_state):
+def log_state(last_time_stamp,pressure, temp, humid, current, voltage, throttle):
         log_time = time()
         if last_time_stamp+5 < log_time:
             last_time_stamp = log_time
@@ -35,7 +34,7 @@ def log_state(last_time_stamp,pressure, temp, humid, current, voltage, control_s
             r_humid	= str(round(humid,1)) 			# in %
             r_curr	= str(round(current,3)) 	# in Amps
             r_volt	= str(round(voltage,3))			# in Volts
-            r_cont	= str(round(control_state,0))	# in throttle % if +ve else if -ve = Auxillary switch activated
+            r_cont	= str(round(throttle,0))	# in throttle % if +ve else if -ve = Auxillary switch activated
             
             values_to_log = [log_time, r_press, r_temp, r_humid, r_curr, r_volt, r_cont]
             
